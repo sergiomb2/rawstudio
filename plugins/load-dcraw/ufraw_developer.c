@@ -2,7 +2,7 @@
  * UFRaw - Unidentified Flying Raw converter for digital camera images
  *
  * ufraw_developer.c - functions for developing images or more exactly pixels.
- * Copyright 2004-2015 by Udi Fuchs
+ * Copyright 2004-2016 by Udi Fuchs
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -387,7 +387,7 @@ static double findExpCoeff(double b)
     else a = b;
     bg = a / (1 - exp(-a));
     /* The limit on try is just to be sure there is no infinite loop. */
-    for (try = 0; abs(bg - b) > 0.001 || try < 100; try++) {
+    for (try = 0; fabs(bg - b) > 0.001 || try < 100; try++) {
                     a = a + (b - bg);
                     bg = a / (1 - exp(-a));
                 }

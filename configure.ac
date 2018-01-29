@@ -10,8 +10,21 @@ AC_CONFIG_MACRO_DIR([m4])
 AC_SEARCH_LIBS([strerror],[cposix])
 AC_PROG_CC
 AC_PROG_CXX
+AC_PROG_CPP
+AC_PROG_INSTALL
+LT_INIT
 #AC_CHECK_INCLUDES_DEFAULT
 AC_PROG_EGREP
+
+# Make sure that pow is available, trying libm if necessary.
+AC_SEARCH_LIBS(pow, m)
+AC_CHECK_FUNCS(canonicalize_file_name)
+AC_CHECK_FUNCS(strcasestr)
+
+m4_ifndef([AC_OPENMP], [m4_include([ac_openmp.m4])])
+AC_OPENMP
+CFLAGS="$CFLAGS $OPENMP_CFLAGS"
+CXXFLAGS="$CXXFLAGS $OPENMP_CFLAGS"
 
 AC_ARG_ENABLE(experimental, 
 	AS_HELP_STRING(

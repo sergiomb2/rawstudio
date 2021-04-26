@@ -39,7 +39,7 @@ AM_CFLAGS =\
 	-DDCRAW_NOLCMS\
 	-DWITH_MMAP_HACK\
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
-	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
+	-DPACKAGE_LOCALE_DIR=\""@localedir@"\" \
 	@PACKAGE_CFLAGS@ @LCMS_CFLAGS@\
 	-I$(top_srcdir)/librawstudio/ \
 	-I$(top_srcdir)/
